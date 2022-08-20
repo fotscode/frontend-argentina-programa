@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http'
 import { Component, OnInit } from '@angular/core'
-import { CustomResponse } from 'src/app/interface/custom-response'
+import { ProfileResponse } from 'src/app/interface/profile-response'
 import { Profile } from 'src/app/interface/profile'
 import { ProfileService } from 'src/app/service/profile.service'
 
@@ -17,7 +17,7 @@ export class ProfileComponent implements OnInit {
     profileImg:
       '',
     name: '',
-    title: 'Full Stack Developer Jr.',
+    title: '',
     description:
       ''
   }

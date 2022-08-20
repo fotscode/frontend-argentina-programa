@@ -1,6 +1,6 @@
 import { Profile } from "./profile";
 
-export interface CustomResponse{
+export interface ProfileResponse{
   timeStamp:Date;
   statusCode:number;
   status:string;
