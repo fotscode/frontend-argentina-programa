@@ -1,0 +1,26 @@
+<div>
+  <div id="bannerImgContainer" class="d-flex justify-content-center">
+    <img
+      id="bannerImg"
+      class="img-fluid position-absolute"
+      src='data:image/jpeg;base64,{{profile.bannerImg}}'
+    />
+  </div>
+  <div class="position-relative container">
+    <img
+      class="img-fluid img-thumbnail rounded-circle"
+      id="profileImg"
+      src='data:image/jpeg;base64,{{profile.profileImg}}'
+    />
+  </div>
+  <div class="container ps-4 pt-4 d-flex flex-orientation-column ">
+    <div class="text-nowrap">
+      <p class="font-weight-bold" style="font-size:2rem" id="title">{{profile.name}}</p>
+      <p class="font-weight-bold" id="title">{{profile.title}}</p>
+    </div>
+    <div style="margin-left:6rem;">
+      <p style="font-size:2rem">Acerca de mi</p>
+      <p >{{profile.description}}</p>
+    </div>
+  </div>
+</div>
