@@ -1,0 +1,35 @@
+<h1 mat-dialog-title>Editar Perfil</h1>
+<div mat-dialog-content>
+  <mat-form-field [style.width.%]="100" appearance="fill">
+    <mat-label>Nombre</mat-label>
+    <input matInput [(ngModel)]="data.name" />
+  </mat-form-field>
+  <mat-form-field [style.width.%]="100" appearance="fill">
+    <mat-label>Titulo</mat-label>
+    <input matInput [(ngModel)]="data.title" />
+  </mat-form-field>
+  <mat-form-field [style.width.%]="100" appearance="fill">
+    <mat-label>Descripcion</mat-label>
+    <textarea matInput [(ngModel)]="data.description"></textarea>
+  </mat-form-field>
+
+  <div class="container d-flex justify-content-center gap-5">
+    <img src="data:image/jpeg;base64,{{ data.bannerImg }}" style="width:150px; height:100px"/>
+    <button type="button" mat-raised-button color="primary" (click)="bannerImg.click()">
+      Elegir Imagen
+    </button>
+    <input hidden (change)="onBannerSelected()" #bannerImg type="file" id="banImg" />
+  </div>
+  <div class="container d-flex justify-content-center gap-5 mt-5">
+    <img src="data:image/jpeg;base64,{{ data.profileImg }}" style="width:150px; height:100px"/>
+    <button type="button" mat-raised-button color="primary" (click)="profileImg.click()">
+      Elegir Imagen
+    </button>
+    <input hidden (change)="onProfileSelected()" #profileImg type="file" id="profImg" />
+  </div>
+
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Rechazar</button>
+  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Ok</button>
+</div>
