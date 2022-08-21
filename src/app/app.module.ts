@@ -8,13 +8,15 @@ import { LoginComponent } from './components/login/login.component'
 import { HomeComponent } from './components/home/home.component'
 import { ErrorPageComponent } from './components/error-page/error-page.component'
 import { NavBarComponent } from './components/nav-bar/nav-bar.component'
-import { ProfileComponent } from './components/profile/profile.component'
+import { ProfileComponent, ProfileEditDialog } from './components/profile/profile.component'
 import { CommonModule } from '@angular/common'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
-import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { AuthGuard } from './guard/auth.guard'
 import { TokenInterceptorService } from './service/token-interceptor.service'
+
+import { MaterialModule } from './material/material.module'
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog'
 
 @NgModule({
   declarations: [
@@ -24,6 +26,7 @@ import { TokenInterceptorService } from './service/token-interceptor.service'
     ErrorPageComponent,
     NavBarComponent,
     ProfileComponent,
+    ProfileEditDialog
   ],
   imports: [
     BrowserModule,
@@ -33,15 +36,17 @@ import { TokenInterceptorService } from './service/token-interceptor.service'
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    MatSnackBarModule
+    MaterialModule,
   ],
   providers: [
     AuthGuard,
     {
-      provide:HTTP_INTERCEPTORS,
+      provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptorService,
       multi: true,
     },
+    { provide: MatDialogRef, useValue: {} },
+    { provide: MAT_DIALOG_DATA, useValue: {} },
   ],
   bootstrap: [AppComponent],
 })
