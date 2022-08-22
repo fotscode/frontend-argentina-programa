@@ -18,7 +18,7 @@ import { TokenInterceptorService } from './service/token-interceptor.service'
 import { MaterialModule } from './material/material.module'
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ExperienceComponent, ExperienceDeleteDialog, ExperienceEditDialog } from './components/experience/experience.component';
-import { EducationComponent } from './components/education/education.component';
+import { EducationComponent, EducationDeleteDialog, EducationEditDialog } from './components/education/education.component';
 import { SkillsComponent } from './components/skills/skills.component';
 import { ProjectsComponent } from './components/projects/projects.component'
 
@@ -36,7 +36,9 @@ import { ProjectsComponent } from './components/projects/projects.component'
     SkillsComponent,
     ProjectsComponent,
     ExperienceEditDialog,
-    ExperienceDeleteDialog
+    ExperienceDeleteDialog,
+    EducationEditDialog,
+    EducationDeleteDialog
   ],
   imports: [
     BrowserModule,

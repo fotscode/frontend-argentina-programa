@@ -1,1 +1,57 @@
-<p>education works!</p>
+<div class="container mt-5">
+  <div class="row mx-1">
+    <h1 class="col-md-11">Educacion</h1>
+    <button
+      *ngIf="isLogged()"
+      (click)="openDialog(emptyEducation)"
+      type="button"
+      class="btn btn-primary col-md-1 p-1"
+    >
+      Agregar
+    </button>
+  </div>
+
+  <div
+    cdkDropList
+    class="example-list mt-5"
+    (cdkDropListDropped)="drop($event)"
+  >
+    <div
+      class="card mb-3"
+      *ngFor="let education of educations"
+      cdkDrag
+      [cdkDragDisabled]="!isLogged()"
+    >
+      <div class="row g-0">
+        <div class="col-md-2">
+          <img
+            class="card-img-left"
+            style="width:100%;"
+            src="data:image/jpeg;base64,{{ education.courseImg }}"
+          />
+        </div>
+        <div class="col-md-9">
+          <div class="card-body">
+            <h3 class="card-title">{{education.title}}</h3>
+            <h5 class="text-muted">{{education.period}}</h5>
+            <p class="card-text">{{education.description}}</p>
+          </div>
+        </div>
+        <div *ngIf="isLogged()" class="col">
+          <div class="btn-group btn-group-vertical w-100 h-100">
+            <button (click)="openDeleteDialog(education)" type="button" class="btn btn-danger btn-sm">
+              Eliminar
+            </button>
+            <button
+              (click)="openDialog(education)"
+              type="button"
+              class="btn btn-outline-secondary btn-sm"
+            >
+              Editar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

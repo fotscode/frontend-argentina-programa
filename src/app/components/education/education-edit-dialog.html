@@ -1,0 +1,43 @@
+<h1 *ngIf="!isEditar()" mat-dialog-title>Agregar educacion</h1>
+<h1 *ngIf="isEditar()" mat-dialog-title>Editar educacion {{data.title}}</h1>
+<div mat-dialog-content>
+  <mat-form-field [style.width.%]="100" appearance="fill">
+    <mat-label>Titulo</mat-label>
+    <input matInput [(ngModel)]="data.title" />
+  </mat-form-field>
+  <mat-form-field [style.width.%]="100" appearance="fill">
+    <mat-label>Periodo</mat-label>
+    <input matInput [(ngModel)]="data.period" />
+  </mat-form-field>
+  <mat-form-field [style.width.%]="100" appearance="fill">
+    <mat-label>Descripcion</mat-label>
+    <textarea matInput [(ngModel)]="data.description"></textarea>
+  </mat-form-field>
+
+  <div class="container d-flex justify-content-center gap-5 align-items-center">
+    <img
+      src="data:image/jpeg;base64,{{ data.courseImg }}"
+      style="width: 150px; height: auto"
+    />
+    <button
+      type="button"
+      class="h-50"
+      mat-raised-button
+      color="primary"
+      (click)="courseImg.click()"
+    >
+      Elegir Imagen
+    </button>
+    <input
+      hidden
+      (change)="onFileSelected()"
+      #courseImg
+      type="file"
+      id="courseImg"
+    />
+  </div>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Rechazar</button>
+  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Ok</button>
+</div>
