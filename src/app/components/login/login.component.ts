@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
   logIn() {
     this.authService.logIn(this.user).subscribe(
       (res) => {
-        localStorage.setItem('token', res.access_token)
+        localStorage.setItem('access_token', res.access_token)
         localStorage.setItem('refresh_token', res.refresh_token)
         this.snackBar.open('Se ha iniciado sesion', void 0, { duration: 3000 })
         this.router.navigate(["/"])

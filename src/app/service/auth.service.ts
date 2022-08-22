@@ -16,17 +16,17 @@ export class AuthService {
     return this.http.post<TokenResponse>(this.URL + '/login', user)
   }
 
-  loggedIn(): Boolean {
-    return !!localStorage.getItem('token')
+  loggedIn(): boolean {
+    return !!localStorage.getItem('access_token')
   }
 
   logOut() {
-    localStorage.removeItem('token')
+    localStorage.removeItem('access_token')
     localStorage.removeItem('refresh_token')
     this.router.navigate(['/'])
   }
 
   getToken() {
-    return localStorage.getItem('token')
+    return localStorage.getItem('access_token')
   }
 }
