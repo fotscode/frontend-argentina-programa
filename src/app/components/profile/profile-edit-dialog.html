@@ -13,16 +13,16 @@
     <textarea matInput [(ngModel)]="data.description"></textarea>
   </mat-form-field>
 
-  <div class="container d-flex justify-content-center gap-5">
+  <div class="container d-flex justify-content-center gap-5 align-items-center">
     <img src="data:image/jpeg;base64,{{ data.bannerImg }}" style="width:150px; height:auto"/>
-    <button type="button" mat-raised-button color="primary" (click)="bannerImg.click()">
+    <button type="button" class="h-50" mat-raised-button color="primary" (click)="bannerImg.click()">
       Elegir Imagen
     </button>
     <input hidden (change)="onBannerSelected()" #bannerImg type="file" id="banImg" />
   </div>
-  <div class="container d-flex justify-content-center gap-5 mt-5">
+  <div class="container d-flex justify-content-center gap-5 mt-5 align-items-center">
     <img src="data:image/jpeg;base64,{{ data.profileImg }}" style="width:150px; height:auto"/>
-    <button type="button" mat-raised-button color="primary" (click)="profileImg.click()">
+    <button type="button" class="h-50" mat-raised-button color="primary" (click)="profileImg.click()">
       Elegir Imagen
     </button>
     <input hidden (change)="onProfileSelected()" #profileImg type="file" id="profImg" />
