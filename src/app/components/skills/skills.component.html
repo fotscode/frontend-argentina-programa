@@ -1,1 +1,58 @@
-<p>skills works!</p>
+<div class="container mt-5">
+  <div class="row mx-1">
+    <h1 class="col-md-11">Skills</h1>
+    <button
+      *ngIf="isLogged()"
+      (click)="openDialog(emptySkill)"
+      type="button"
+      class="btn btn-primary col-md-1 p-1"
+    >
+      Agregar
+    </button>
+  </div>
+
+  <div class="row row-cols-3 mt-5 justify-content-md-center">
+    <div
+      *ngFor="let skill of skills"
+      class="col text-center align-middle"
+      style="width: 230px; margin: 0 100px"
+    >
+      <p style="font-size: 1.5rem">{{ skill.title }}</p>
+      <mat-progress-spinner
+        [color]="'primary'"
+        [mode]="'determinate'"
+        [value]="skill.percentage"
+        [diameter]="200"
+        [strokeWidth]="20"
+      >
+      </mat-progress-spinner>
+      <p
+        style="
+          width: 100%;
+          position: relative;
+          top: -125px;
+          left: 5px;
+          font-size: 2rem;
+        "
+      >
+        {{ skill.percentage }}%
+      </p>
+      <div *ngIf="isLogged()" class="btn-group" role="group" style="top: -40px">
+        <button
+          type="button"
+          (click)="openDialog(skill)"
+          class="btn btn-outline-secondary"
+        >
+          Editar
+        </button>
+        <button
+          (click)="openDeleteDialog(skill)"
+          type="button"
+          class="btn btn-danger"
+        >
+          Eliminar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

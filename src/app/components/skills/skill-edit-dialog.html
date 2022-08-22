@@ -1,0 +1,26 @@
+<h1 *ngIf="!isEditar()" mat-dialog-title>Agregar skill</h1>
+<h1 *ngIf="isEditar()" mat-dialog-title>Editar skill {{data.title}}</h1>
+<div mat-dialog-content>
+  <mat-form-field [style.width.%]="100" appearance="fill">
+    <mat-label>Titulo</mat-label>
+    <input matInput [(ngModel)]="data.title" />
+  </mat-form-field>
+  <div class="text-center align-middle">
+    <h5 style="font-family: 'Open Sans'; letter-spacing: 1px;">Porcentaje</h5>
+    <mat-slider
+      thumbLabel
+      tickInterval="1000"
+      min="0"
+      max="100"
+      step="1"
+      value="50"
+      [(ngModel)]="data.percentage"
+      [displayWith]="formatLabel"
+      style="min-width: 100%; margin-top: 20px;"
+    ></mat-slider>
+  </div>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Rechazar</button>
+  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Ok</button>
+</div>
