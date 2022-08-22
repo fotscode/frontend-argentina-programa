@@ -14,9 +14,9 @@
     <textarea matInput [(ngModel)]="data.description"></textarea>
   </mat-form-field>
 
-  <div class="container d-flex justify-content-center gap-5">
+  <div class="container d-flex justify-content-center gap-5 align-items-center">
     <img src="data:image/jpeg;base64,{{ data.companyImg }}" style="width:150px; height:auto"/>
-    <button type="button" mat-raised-button color="primary" (click)="companyImg.click()">
+    <button type="button" class="h-50" mat-raised-button color="primary" (click)="companyImg.click()">
       Elegir Imagen
     </button>
     <input hidden (change)="onFileSelected()" #companyImg type="file" id="compImg" />
