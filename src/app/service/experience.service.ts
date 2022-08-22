@@ -22,7 +22,7 @@ export class ExperienceService {
   }
 
   updateExperience(experience:Experience): Observable<ExperienceResponse> {
-    return this.http.post<ExperienceResponse>(`${this.apiUrl}/update`,experience);
+    return this.http.put<ExperienceResponse>(`${this.apiUrl}/update`,experience);
   }
 
   createExperience(experience:Experience): Observable<ExperienceResponse> {
