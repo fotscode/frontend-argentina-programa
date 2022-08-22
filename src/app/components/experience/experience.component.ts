@@ -74,7 +74,6 @@ export class ExperienceComponent implements OnInit {
       if (result) {
         this.experienceService.updateExperience(result).subscribe(
           (res) => {
-            //this.profile = {...result} TODO cambiar to set result.id
             if (res.data.experience) {
               this.experiences = this.experiences.filter(
                 (exp) => exp.id != result.id
