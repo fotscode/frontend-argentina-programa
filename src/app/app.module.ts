@@ -16,7 +16,11 @@ import { AuthGuard } from './guard/auth.guard'
 import { TokenInterceptorService } from './service/token-interceptor.service'
 
 import { MaterialModule } from './material/material.module'
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog'
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { ExperienceComponent, ExperienceDeleteDialog, ExperienceEditDialog } from './components/experience/experience.component';
+import { EducationComponent } from './components/education/education.component';
+import { SkillsComponent } from './components/skills/skills.component';
+import { ProjectsComponent } from './components/projects/projects.component'
 
 @NgModule({
   declarations: [
@@ -26,7 +30,13 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog'
     ErrorPageComponent,
     NavBarComponent,
     ProfileComponent,
-    ProfileEditDialog
+    ProfileEditDialog,
+    ExperienceComponent,
+    EducationComponent,
+    SkillsComponent,
+    ProjectsComponent,
+    ExperienceEditDialog,
+    ExperienceDeleteDialog
   ],
   imports: [
     BrowserModule,
