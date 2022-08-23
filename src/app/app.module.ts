@@ -22,6 +22,7 @@ import { EducationComponent, EducationDeleteDialog, EducationEditDialog } from '
 import { SkillDeleteDialog, SkillEditDialog, SkillsComponent } from './components/skills/skills.component';
 import { ProjectDeleteDialog, ProjectEditDialog, ProjectsComponent } from './components/projects/projects.component';
 import { FooterComponent } from './components/footer/footer.component'
+import { MAT_DATE_LOCALE } from '@angular/material/core'
 
 @NgModule({
   declarations: [
@@ -65,6 +66,7 @@ import { FooterComponent } from './components/footer/footer.component'
     },
     { provide: MatDialogRef, useValue: {} },
     { provide: MAT_DIALOG_DATA, useValue: {} },
+    { provide: MAT_DATE_LOCALE, useValue: 'es-AR' }
   ],
   bootstrap: [AppComponent],
 })
