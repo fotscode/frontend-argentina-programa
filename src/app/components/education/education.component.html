@@ -10,7 +10,17 @@
       Agregar
     </button>
   </div>
-
+  <div *ngIf="isEmpty()" class="card mt-3">
+    <div class="row g-0">
+      <div class="col">
+        <div class="card-body">
+          <h3 class="card-title">Esto es incomodo, no existen items en educacion</h3>
+          <h5 class="text-muted">Esperare a que se llene</h5>
+          <p class="card-text">¿Sera pronto verdad?</p>
+        </div>
+      </div>
+    </div>
+  </div>
   <div
     cdkDropList
     class="example-list mt-5"

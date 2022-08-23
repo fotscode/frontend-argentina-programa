@@ -58,6 +58,9 @@ export class EducationComponent implements OnInit {
       )
     }
   }
+  isEmpty():boolean{
+    return this.educations.length==0;
+  }
 
   openDialog(exp: Education): void {
     const dialogRef = this.dialog.open(EducationEditDialog, {

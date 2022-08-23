@@ -30,14 +30,18 @@ export class SkillsComponent implements OnInit {
   ngOnInit(): void {
     this.skillService.getSkills().subscribe(
       (res) => {
-        if(res.data.skills){
-          this.skills=res.data.skills
+        if (res.data.skills) {
+          this.skills = res.data.skills
         }
       },
       (err) => {
         console.log(err)
       }
     )
+  }
+
+  isEmpty(): boolean {
+    return this.skills.length == 0
   }
 
   isLogged() {
@@ -90,7 +94,7 @@ export class SkillsComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe((result: Skill) => {
       if (result) {
-        this.skills=this.skills.filter((ski)=>ski.id!=result.id)
+        this.skills = this.skills.filter((ski) => ski.id != result.id)
         this.deleteSkill(result)
       }
     })
@@ -115,7 +119,7 @@ export class SkillEditDialog {
   isEditar() {
     return this.editar
   }
-  formatLabel(value:number){
+  formatLabel(value: number) {
     return `${value}%`
   }
 }

@@ -11,8 +11,20 @@
     </button>
   </div>
 
+  <div *ngIf="isEmpty()" class="card mt-3">
+    <div class="row g-0">
+      <div class="col">
+        <div class="card-body">
+          <h3 class="card-title">Esto es incomodo, no existen items en experiencia</h3>
+          <h5 class="text-muted">Esperare a que se llene</h5>
+          <p class="card-text">¿Sera pronto verdad?</p>
+        </div>
+      </div>
+    </div>
+  </div>
   <div
     cdkDropList
+    *ngIf="!isEmpty()"
     class="example-list mt-5"
     (cdkDropListDropped)="drop($event)"
   >
@@ -26,20 +38,24 @@
         <div class="col-md-2">
           <img
             class="card-img-left"
-            style="width:100%;"
+            style="width: 100%"
             src="data:image/jpeg;base64,{{ experience.companyImg }}"
           />
         </div>
         <div class="col-md-9">
           <div class="card-body">
-            <h3 class="card-title">{{experience.title}}</h3>
-            <h5 class="text-muted">{{experience.period}}</h5>
-            <p class="card-text">{{experience.description}}</p>
+            <h3 class="card-title">{{ experience.title }}</h3>
+            <h5 class="text-muted">{{ experience.period }}</h5>
+            <p class="card-text">{{ experience.description }}</p>
           </div>
         </div>
         <div *ngIf="isLogged()" class="col">
           <div class="btn-group btn-group-vertical w-100 h-100">
-            <button (click)="openDeleteDialog(experience)" type="button" class="btn btn-danger btn-sm">
+            <button
+              (click)="openDeleteDialog(experience)"
+              type="button"
+              class="btn btn-danger btn-sm"
+            >
               Eliminar
             </button>
             <button
