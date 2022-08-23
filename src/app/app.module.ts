@@ -20,7 +20,8 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ExperienceComponent, ExperienceDeleteDialog, ExperienceEditDialog } from './components/experience/experience.component';
 import { EducationComponent, EducationDeleteDialog, EducationEditDialog } from './components/education/education.component';
 import { SkillDeleteDialog, SkillEditDialog, SkillsComponent } from './components/skills/skills.component';
-import { ProjectsComponent } from './components/projects/projects.component'
+import { ProjectDeleteDialog, ProjectEditDialog, ProjectsComponent } from './components/projects/projects.component';
+import { FooterComponent } from './components/footer/footer.component'
 
 @NgModule({
   declarations: [
@@ -40,7 +41,10 @@ import { ProjectsComponent } from './components/projects/projects.component'
     EducationEditDialog,
     EducationDeleteDialog,
     SkillEditDialog,
-    SkillDeleteDialog
+    SkillDeleteDialog,
+    ProjectEditDialog,
+    ProjectDeleteDialog,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
