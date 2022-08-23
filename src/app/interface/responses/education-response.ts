@@ -1,4 +1,4 @@
-import { Education } from './education'
+import { Education } from '../education'
 
 export interface EducationResponse {
   timeStamp: Date

@@ -1,4 +1,4 @@
-import { Experience } from "./experience";
+import { Experience } from "../experience";
 
 export interface ExperienceResponse{
   timeStamp:Date;

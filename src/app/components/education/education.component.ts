@@ -2,7 +2,6 @@ import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Education } from 'src/app/interface/education';
-import { EducationResponse } from 'src/app/interface/education-response';
 import { AuthService } from 'src/app/service/auth.service';
 import { EducationService } from 'src/app/service/education.service';
 
@@ -22,7 +21,7 @@ export class EducationComponent implements OnInit {
 
   ngOnInit(): void {
     this.educationService.getEducations().subscribe(
-      (res: EducationResponse) => {
+      (res) => {
         if (res.data.educations) {
           this.educations = res.data.educations
         }

@@ -6,7 +6,6 @@ import {
   MAT_DIALOG_DATA,
 } from '@angular/material/dialog'
 import { Experience } from 'src/app/interface/experience'
-import { ExperienceResponse } from 'src/app/interface/experience-response'
 import { AuthService } from 'src/app/service/auth.service'
 import { ExperienceService } from 'src/app/service/experience.service'
 
@@ -26,7 +25,7 @@ export class ExperienceComponent implements OnInit {
 
   ngOnInit(): void {
     this.experienceService.getExperiences().subscribe(
-      (res: ExperienceResponse) => {
+      (res) => {
         if (res.data.experiences) {
           this.experiences = res.data.experiences
         }

@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
-import { TokenResponse } from '../interface/token-response';
+import { TokenResponse } from '../interface/responses/token-response';
 import { User } from '../interface/user';
 
 @Injectable({

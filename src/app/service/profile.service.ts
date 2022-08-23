@@ -2,7 +2,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http'
 import { Injectable } from '@angular/core'
 import { Observable } from 'rxjs'
 import { environment } from 'src/environments/environment'
-import { ProfileResponse } from '../interface/profile-response'
+import { ProfileResponse } from '../interface/responses/profile-response'
 import { Profile } from '../interface/profile'
 
 @Injectable({
