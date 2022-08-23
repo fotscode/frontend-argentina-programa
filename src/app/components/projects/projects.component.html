@@ -10,6 +10,19 @@
       Agregar
     </button>
   </div>
+  <div *ngIf="isEmpty()" class="card mt-3">
+    <div class="row g-0">
+      <div class="col">
+        <div class="card-body">
+          <h3 class="card-title">
+            Esto es incomodo, no existen items en proyectos
+          </h3>
+          <h5 class="text-muted">Esperare a que se llene</h5>
+          <p class="card-text">¿Sera pronto verdad?</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 <div
   id="carouselExampleCaptions"
@@ -30,8 +43,20 @@
       </a>
       <div class="carousel-caption d-none d-md-block">
         <div class="btn-group mb-5" role="group">
-          <button type="button" (click)="openDialog(project)" class="btn btn-secondary">Editar</button>
-          <button type="button" (click)="openDeleteDialog(project)" class="btn btn-danger">Eliminar</button>
+          <button
+            type="button"
+            (click)="openDialog(project)"
+            class="btn btn-secondary"
+          >
+            Editar
+          </button>
+          <button
+            type="button"
+            (click)="openDeleteDialog(project)"
+            class="btn btn-danger"
+          >
+            Eliminar
+          </button>
         </div>
         <h1>{{ project.title }}</h1>
         <h3>{{ project.releaseDate.getFullYear() }}</h3>

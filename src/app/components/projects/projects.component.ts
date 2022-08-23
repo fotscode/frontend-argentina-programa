@@ -47,6 +47,9 @@ export class ProjectsComponent implements OnInit {
       }
     )
   }
+  isEmpty(): boolean {
+    return this.projects.length == 0
+  }
 
   isLogged() {
     return this.authService.loggedIn()
@@ -66,7 +69,9 @@ export class ProjectsComponent implements OnInit {
               this.projects = this.projects.filter(
                 (proj) => proj.id != result.id
               )
-              res.data.project.releaseDate=new Date(res.data.project.releaseDate)
+              res.data.project.releaseDate = new Date(
+                res.data.project.releaseDate
+              )
               this.projects.push(res.data.project)
             }
           },
@@ -86,9 +91,18 @@ export class ProjectsComponent implements OnInit {
     dialogRef.afterClosed().subscribe((result: Project) => {
       if (result) {
         this.projects = this.projects.filter((exp) => exp.id != result.id)
+        this.deleteAndRefreshCarousel()
         this.deleteProject(result)
       }
     })
+  }
+
+  private deleteAndRefreshCarousel() {
+    let $carousel = $('#carouselExampleCaptions')
+    var ActiveElement = $carousel.find('.carousel-item.active')
+    ActiveElement.remove()
+    var NextElement = $carousel.find('.carousel-item').first()
+    NextElement.addClass('active')
   }
 
   private deleteProject(exp: Project) {
