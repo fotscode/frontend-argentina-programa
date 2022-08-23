@@ -46,7 +46,7 @@ export class EducationComponent implements OnInit {
   drop(event: CdkDragDrop<string[]>) {
     moveItemInArray(this.educations, event.previousIndex, event.currentIndex)
   }
-  deleteEducation(exp: Education) {
+  private deleteEducation(exp: Education) {
     if (exp.id) {
       this.educationService.deleteEducation(exp.id).subscribe(
         (res) => {

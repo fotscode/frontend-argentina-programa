@@ -50,7 +50,8 @@ export class ExperienceComponent implements OnInit {
   drop(event: CdkDragDrop<string[]>) {
     moveItemInArray(this.experiences, event.previousIndex, event.currentIndex)
   }
-  deleteExperience(exp: Experience) {
+
+  private deleteExperience(exp: Experience) {
     if (exp.id) {
       this.experienceService.deleteExperience(exp.id).subscribe(
         (res) => {
@@ -164,3 +165,5 @@ export class ExperienceDeleteDialog {
     this.dialogRef.close()
   }
 }
+
+
