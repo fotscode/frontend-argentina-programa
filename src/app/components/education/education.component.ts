@@ -25,7 +25,6 @@ export class EducationComponent implements OnInit {
         if (res.data.educations) {
           this.educations = res.data.educations
         }
-        console.log(this.educations)
       },
       (err) => {
         console.log(err)

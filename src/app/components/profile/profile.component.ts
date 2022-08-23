@@ -53,7 +53,6 @@ export class ProfileComponent implements OnInit {
         this.profileService.updateProfile(result).subscribe(
           (res) => {
             this.profile = {...result}
-            console.log(res)
           },
           (err) => {
             console.log(err)
