@@ -42,7 +42,7 @@
         />
       </a>
       <div class="carousel-caption d-none d-md-block">
-        <div class="btn-group mb-5" role="group">
+        <div *ngIf="isLogged()"class="btn-group mb-5" role="group">
           <button
             type="button"
             (click)="openDialog(project)"
