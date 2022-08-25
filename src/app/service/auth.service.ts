@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { timeout } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { TokenResponse } from '../interface/responses/token-response';
 import { User } from '../interface/user';
@@ -14,6 +15,7 @@ export class AuthService {
 
   logIn(user: User) {
     return this.http.post<TokenResponse>(this.URL + '/login', user)
+      .pipe(timeout(10000))
   }
 
   loggedIn(): boolean {

@@ -1,6 +1,6 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http'
 import { Injectable } from '@angular/core'
-import { Observable } from 'rxjs'
+import { Observable, timeout } from 'rxjs'
 import { environment } from 'src/environments/environment'
 import { ProfileResponse } from '../interface/responses/profile-response'
 import { Profile } from '../interface/profile'
@@ -12,15 +12,21 @@ export class ProfileService {
   private readonly apiUrl = `${environment.baseApiUrl}/profile`
   constructor(private http: HttpClient) {}
 
-  getProfile(id: number): Observable<ProfileResponse>{
-    return this.http.get<ProfileResponse>(`${this.apiUrl}/get/${id}`);
+  getProfile(id: number): Observable<ProfileResponse> {
+    return this.http
+      .get<ProfileResponse>(`${this.apiUrl}/get/${id}`)
+      .pipe(timeout(10000))
   }
 
-  updateProfile(profile:Profile): Observable<ProfileResponse> {
-    return this.http.post<ProfileResponse>(`${this.apiUrl}/update`,profile);
+  updateProfile(profile: Profile): Observable<ProfileResponse> {
+    return this.http
+      .post<ProfileResponse>(`${this.apiUrl}/update`, profile)
+      .pipe(timeout(10000))
   }
 
   getProfiles(): Observable<ProfileResponse> {
-    return this.http.get<ProfileResponse>(`${this.apiUrl}/list`);
+    return this.http
+      .get<ProfileResponse>(`${this.apiUrl}/list`)
+      .pipe(timeout(10000))
   }
 }

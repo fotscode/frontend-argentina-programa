@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http'
 import { Injectable } from '@angular/core'
-import { Observable } from 'rxjs'
+import { Observable, timeout } from 'rxjs'
 import { environment } from 'src/environments/environment'
 import { Project } from '../interface/project'
 import { ProjectResponse } from '../interface/responses/project-response'
@@ -14,22 +14,32 @@ export class ProjectService {
   constructor(private http: HttpClient) {}
 
   getProjects(): Observable<ProjectResponse> {
-    return this.http.get<ProjectResponse>(`${this.apiUrl}/list`)
+    return this.http
+      .get<ProjectResponse>(`${this.apiUrl}/list`)
+      .pipe(timeout(10000))
   }
 
   getProject(id: number): Observable<ProjectResponse> {
-    return this.http.get<ProjectResponse>(`${this.apiUrl}/get/${id}`)
+    return this.http
+      .get<ProjectResponse>(`${this.apiUrl}/get/${id}`)
+      .pipe(timeout(10000))
   }
 
   updateProject(project: Project): Observable<ProjectResponse> {
-    return this.http.put<ProjectResponse>(`${this.apiUrl}/update`, project)
+    return this.http
+      .put<ProjectResponse>(`${this.apiUrl}/update`, project)
+      .pipe(timeout(10000))
   }
 
   createProject(project: Project): Observable<ProjectResponse> {
-    return this.http.post<ProjectResponse>(`${this.apiUrl}/save`, project)
+    return this.http
+      .post<ProjectResponse>(`${this.apiUrl}/save`, project)
+      .pipe(timeout(10000))
   }
 
   deleteProject(id: number): Observable<ProjectResponse> {
-    return this.http.delete<ProjectResponse>(`${this.apiUrl}/delete/${id}`)
+    return this.http
+      .delete<ProjectResponse>(`${this.apiUrl}/delete/${id}`)
+      .pipe(timeout(10000))
   }
 }
