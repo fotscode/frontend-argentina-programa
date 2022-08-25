@@ -19,4 +19,8 @@ export class ProfileService {
   updateProfile(profile:Profile): Observable<ProfileResponse> {
     return this.http.post<ProfileResponse>(`${this.apiUrl}/update`,profile);
   }
+
+  getProfiles(): Observable<ProfileResponse> {
+    return this.http.get<ProfileResponse>(`${this.apiUrl}/list`);
+  }
 }

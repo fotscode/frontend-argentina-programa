@@ -31,9 +31,9 @@ export class ProfileComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.profileService.getProfile(3).subscribe((res) => {
-      if (res.data.profile) {
-        this.profile = res.data.profile
+    this.profileService.getProfiles().subscribe((res) => {
+      if (res.data.profiles) {
+        this.profile = res.data.profiles[0]
         this.editedProfile = { ...this.profile }
       }
     })
