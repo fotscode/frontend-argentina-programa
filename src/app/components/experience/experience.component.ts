@@ -58,7 +58,6 @@ export class ExperienceComponent implements OnInit {
     if (exp.id) {
       this.experienceService.deleteExperience(exp.id).subscribe(
         (res) => {
-          console.log(res)
         },
         (err) => {
           console.log(err)
@@ -83,7 +82,6 @@ export class ExperienceComponent implements OnInit {
               )
               this.experiences.push(res.data.experience)
             }
-            console.log(this.experiences)
           },
           (err) => {
             console.log(err)

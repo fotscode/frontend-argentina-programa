@@ -109,7 +109,6 @@ export class ProjectsComponent implements OnInit {
     if (exp.id) {
       this.projectService.deleteProject(exp.id).subscribe(
         (res) => {
-          console.log(res)
         },
         (err) => {
           console.log(err)

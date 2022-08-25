@@ -50,7 +50,6 @@ export class EducationComponent implements OnInit {
     if (exp.id) {
       this.educationService.deleteEducation(exp.id).subscribe(
         (res) => {
-          console.log(res)
         },
         (err) => {
           console.log(err)
@@ -79,7 +78,6 @@ export class EducationComponent implements OnInit {
               )
               this.educations.push(res.data.education)
             }
-            console.log(this.educations)
           },
           (err) => {
             console.log(err)

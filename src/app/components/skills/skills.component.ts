@@ -52,7 +52,6 @@ export class SkillsComponent implements OnInit {
     if (ski.id) {
       this.skillService.deleteSkill(ski.id).subscribe(
         (res) => {
-          console.log(res)
         },
         (err) => {
           console.log(err)
@@ -69,14 +68,12 @@ export class SkillsComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe((result: Skill) => {
       if (result) {
-        console.log(result)
         this.skillService.updateSkill(result).subscribe(
           (res) => {
             if (res.data.skill) {
               this.skills = this.skills.filter((ski) => ski.id != result.id)
               this.skills.push(res.data.skill)
             }
-            console.log(this.skills)
           },
           (err) => {
             console.log(err)
