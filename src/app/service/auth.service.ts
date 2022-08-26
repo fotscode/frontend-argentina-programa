@@ -15,7 +15,7 @@ export class AuthService {
 
   logIn(user: User) {
     return this.http.post<TokenResponse>(this.URL + '/login', user)
-      .pipe(timeout(10000),retry(10))
+      .pipe(timeout(10000),retry(3))
   }
 
   loggedIn(): boolean {

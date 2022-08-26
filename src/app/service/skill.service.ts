@@ -14,30 +14,30 @@ export class SkillService {
   getSkills(): Observable<SkillResponse> {
     return this.http
       .get<SkillResponse>(`${this.apiUrl}/list`)
-      .pipe(timeout(10000), retry(10))
+      .pipe(timeout(10000), retry(3))
   }
 
   getSkill(id: number): Observable<SkillResponse> {
     return this.http
       .get<SkillResponse>(`${this.apiUrl}/get/${id}`)
-      .pipe(timeout(10000), retry(10))
+      .pipe(timeout(10000), retry(3))
   }
 
   updateSkill(skill: Skill): Observable<SkillResponse> {
     return this.http
       .put<SkillResponse>(`${this.apiUrl}/update`, skill)
-      .pipe(timeout(10000), retry(10))
+      .pipe(timeout(10000), retry(3))
   }
 
   createSkill(skill: Skill): Observable<SkillResponse> {
     return this.http
       .post<SkillResponse>(`${this.apiUrl}/save`, skill)
-      .pipe(timeout(10000), retry(10))
+      .pipe(timeout(10000), retry(3))
   }
 
   deleteSkill(id: number): Observable<SkillResponse> {
     return this.http
       .delete<SkillResponse>(`${this.apiUrl}/delete/${id}`)
-      .pipe(timeout(10000), retry(10))
+      .pipe(timeout(10000), retry(3))
   }
 }

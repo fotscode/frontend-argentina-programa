@@ -15,18 +15,18 @@ export class ProfileService {
   getProfile(id: number): Observable<ProfileResponse> {
     return this.http
       .get<ProfileResponse>(`${this.apiUrl}/get/${id}`)
-      .pipe(timeout(10000), retry(10))
+      .pipe(timeout(10000), retry(3))
   }
 
   updateProfile(profile: Profile): Observable<ProfileResponse> {
     return this.http
       .post<ProfileResponse>(`${this.apiUrl}/update`, profile)
-      .pipe(timeout(10000), retry(10))
+      .pipe(timeout(10000), retry(3))
   }
 
   getProfiles(): Observable<ProfileResponse> {
     return this.http
       .get<ProfileResponse>(`${this.apiUrl}/list`)
-      .pipe(timeout(10000), retry(10))
+      .pipe(timeout(10000), retry(3))
   }
 }

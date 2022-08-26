@@ -16,30 +16,30 @@ export class ProjectService {
   getProjects(): Observable<ProjectResponse> {
     return this.http
       .get<ProjectResponse>(`${this.apiUrl}/list`)
-      .pipe(timeout(10000), retry(10))
+      .pipe(timeout(10000), retry(3))
   }
 
   getProject(id: number): Observable<ProjectResponse> {
     return this.http
       .get<ProjectResponse>(`${this.apiUrl}/get/${id}`)
-      .pipe(timeout(10000), retry(10))
+      .pipe(timeout(10000), retry(3))
   }
 
   updateProject(project: Project): Observable<ProjectResponse> {
     return this.http
       .put<ProjectResponse>(`${this.apiUrl}/update`, project)
-      .pipe(timeout(10000), retry(10))
+      .pipe(timeout(10000), retry(3))
   }
 
   createProject(project: Project): Observable<ProjectResponse> {
     return this.http
       .post<ProjectResponse>(`${this.apiUrl}/save`, project)
-      .pipe(timeout(10000), retry(10))
+      .pipe(timeout(10000), retry(3))
   }
 
   deleteProject(id: number): Observable<ProjectResponse> {
     return this.http
       .delete<ProjectResponse>(`${this.apiUrl}/delete/${id}`)
-      .pipe(timeout(10000), retry(10))
+      .pipe(timeout(10000), retry(3))
   }
 }
